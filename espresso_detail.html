@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espresso - The Espresso Elegance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="cafe.css">
+    <style>
+        /* Custom styles for the page */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f7f1e1;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .detail-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #c77a5e;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .detail-description {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+
+        .img-fluid {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .custom-form select {
+            border: 2px solid #c77a5e;
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .custom-button {
+            background-color: #c77a5e;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-button:hover {
+            background-color: #4a4a4a;
+        }
+
+        .row-detail {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .detail-img-container {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .detail-info-container {
+            flex: 1;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-info-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .detail-info-container ul li {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <div class="container-fluid">
+            <a href="cafe1.html" class="navbar-brand">
+                <img src="logo.JPEG.jpg" alt="Logo" class="rounded-pill" style="width: 100px; height: 100px;">
+            </a>
+            <a href="cafe1.html" class="navbar-brand">
+                <h2 class="heading">THE ESPRESSO ELEGANCE</h2>
+                <h4 class="subhead" style="color: #c77a5e;">Brewing vibes</h4>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="cafe1.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="menu.html" class="nav-link">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link">Let's Brew!!</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Espresso Detail Section -->
+    <div class="container row-detail">
+
+        <!-- Espresso Image -->
+        <div class="detail-img-container">
+            <img src="espresso.jpg" alt="Espresso" class="img-fluid">
+        </div>
+
+        <!-- Espresso Details -->
+        <div class="detail-info-container">
+            <h2 class="detail-title">Espresso</h2>
+            <p class="detail-description">Espresso is a concentrated coffee brewed by forcing pressurized hot water through finely-ground coffee beans. It has a thick consistency and strong flavor, typically used as a base for many other coffee beverages like lattes, cappuccinos, and more.</p>
+
+            <div class="section-subtitle">Ingredients:</div>
+            <ul>
+                <li>Freshly ground espresso beans</li>
+                <li>Hot water</li>
+            </ul>
+
+            <div class="section-subtitle">Nutritional Information:</div>
+            <ul>
+                <li>Calories: 5</li>
+                <li>Caffeine: 63 mg</li>
+                <li>Sugar: 0 g</li>
+            </ul>
+
+            <div class="section-subtitle">Customize Your Espresso:</div>
+            <form>
+                <label for="size">Choose a size:</label>
+                <select id="size" class="custom-form">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+
+                <label for="milk">Milk Type:</label>
+                <select id="milk" class="custom-form">
+                    <option value="whole">Whole Milk</option>
+                    <option value="almond">Almond Milk</option>
+                    <option value="soy">Soy Milk</option>
+                </select>
+
+                <button type="submit" class="custom-button mt-5">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <h4>Disclaimer</h4>
+        <p>© 2025 Espresso Café. All rights reserved.</p>
+        <p><a href="about.html">About</a> | <a href="contact.html">Contact Us</a></p>
+        <div class="social-links">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-twitter"></a>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+</body>
+</html>

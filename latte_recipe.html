@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Make the Perfect Latte - Espresso Café</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="cafe.css">
+    <style>
+         body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f7f1e1; /* Soft light beige background */
+            color: #4a4a4a; /* Charcoal gray text for readability */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: #1a3c57; /* Dark Navy Blue */
+        }
+
+        .navbar-brand img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .nav-link {
+            color: #f7f1e1 !important; /* Beige text color */
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-link:hover {
+            color: #c77a5e !important; /* Rich caramel accent */
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .heading {
+            font-size: 2.5rem;
+            font-family: 'Merriweather', serif;
+            color: chocolate; /* Beige text color for the heading */
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .subhead {
+            color: #c77a5e; /* Caramel color for subhead */
+            font-size: 1.2rem;
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: #1a3c57; /* Dark Navy Blue footer */
+            color: #f7f1e1; /* Beige text */
+            text-align: center;
+            padding: 30px 0;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .footer h4 {
+            font-family: 'Merriweather', serif;
+            margin: 0;
+            font-size: 1.8rem;
+            color: #c77a5e; /* Rich caramel accent */
+        }
+
+        .footer p {
+            font-size: 1rem;
+            color: #ddd;
+        }
+
+        .footer a {
+            color: #f7f1e1;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            color: #c77a5e;
+        }
+
+        /* Card Styling */
+        .card-container {
+            perspective: 1500px; /* Creates a 3D space for the card flip */
+            position: relative;
+        }
+
+        .card {
+            background-color: #fff;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.6s ease-in-out;
+            transform-style: preserve-3d;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit:cover;
+            border-radius: 10px;
+        }
+
+        .card-content {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .card h5 {
+            margin-top: 10px;
+            font-family: 'Gloock', sans-serif;
+            color: #4a4a4a;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .card .price {
+            font-size: 1.5rem;
+            color: #c77a5e;
+            font-weight: 600;
+        }
+
+        /* Hover effect for card flip */
+        .card-container:hover .card {
+            transform: rotateY(180deg);
+        }
+
+        .card .card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a3c57; /* Beige background for the back */
+            border-radius: 10px;
+            color: #4a4a4a;
+            text-align: center;
+            padding: 20px;
+            transform: rotateY(180deg);
+            backface-visibility: hidden; /* Hide the back when flipped */
+        }
+
+        .card .card-back h5 {
+            font-family: 'Gloock', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color:azure;
+        }
+
+        .card .card-back p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.2rem;
+            color:azure;
+            margin-top: 50px;
+        }
+
+        /* Grid Layout (3 columns) */
+        .items-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 20px;
+            padding: 30px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-family: 'Merriweather', serif;
+            font-size: 2.2rem;
+            color: #4a4a4a;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Fun Section Styling */
+        .fun {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .fun h2 {
+            font-size: 2.5rem;
+            font-family: 'Merriweather', serif;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+
+        .fun img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        /* Navbar collapsible for screens smaller than 560px */
+        @media (max-width: 560px) {
+            .navbar-collapse {
+                display: none;
+            }
+
+            .navbar-toggler {
+                display: block;
+            }
+
+            .navbar-collapse.collapse {
+                display: block !important;
+            }
+
+            /* Adjust grid layout for small screens */
+            .items-container {
+                grid-template-columns: 1fr; /* 1 column on small screens */
+            }
+
+            .card h5 {
+                font-size: 1.4rem; /* Adjust card item name size */
+            }
+
+            .card .price {
+                font-size: 1.3rem; /* Adjust card price size */
+            }
+        }
+    </style>
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <div class="container-fluid">
+            <a href="cafe1.html" class="navbar-brand">
+                <img src="logo.JPEG.jpg" alt="Logo" class="rounded-pill" style="width: 100px; height: 100px;">
+            </a>
+            <a href="cafe1.html" class="navbar-brand">
+                <h2 class="heading" style="text-decoration: underline; color:chocolate;">THE ESPRESSO ELEGANCE</h2>
+                <h4 class="subhead" style="color: #c77a5e;">Brewing vibes</h4>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="cafe1.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="menu.html" class="nav-link">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link">Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Latte Recipe Content -->
+    <div class="container my-5">
+        <h2 class="section-heading text-center">How to Make the Perfect Latte</h2>
+        
+        <!-- Latte Image -->
+        <img src="brew.jpg" alt="Latte Recipe" class="img-thumbnail mb-4">
+
+        <p class="lead">Making the perfect latte is an art form, combining the perfect espresso shot with creamy, velvety steamed milk. Here's a step-by-step guide to creating a latte just like your favorite café!</p>
+        
+        <h3>Ingredients:</h3>
+        <ul>
+            <li>1 shot of espresso</li>
+            <li>8 oz steamed milk</li>
+            <li>1 oz milk foam</li>
+            <li>Sugar or syrup (optional)</li>
+        </ul>
+
+        <h3>Instructions:</h3>
+        <ol>
+            <li><strong>Brew the Espresso:</strong> Start by brewing a single shot of espresso. Use fresh, high-quality coffee beans for the best flavor.</li>
+            <li><strong>Steam the Milk:</strong> Use a steam wand to steam 8 oz of milk until it's smooth, velvety, and hot. The milk should be heated to around 150°F (65°C).</li>
+            <li><strong>Pour the Espresso:</strong> Pour the espresso into your favorite coffee cup. It should settle at the bottom of the cup.</li>
+            <li><strong>Pour the Steamed Milk:</strong> Slowly pour the steamed milk over the espresso, making sure to keep the milk foam back.</li>
+            <li><strong>Add the Milk Foam:</strong> Spoon a small amount of milk foam on top of the latte to create a nice, smooth finish. Optionally, you can sprinkle some cocoa or cinnamon for extra flavor!</li>
+        </ol>
+
+        <h3> <strong>Enjoy Your Latte!</strong></h3>
+        <p>Now that you've made the perfect latte, it's time to enjoy the creamy, rich taste of freshly brewed espresso paired with the velvety steamed milk. You can customize your latte with flavored syrups like vanilla, caramel, or hazelnut to suit your taste!</p>
+
+        <p>For a professional touch, try experimenting with latte art. Start with simple shapes like hearts or rosettas, and as you improve, you can try more complex designs!</p>
+
+        <div class="text-center">
+            <a href="blog.html" class="btn btn-dark">Back to Blog</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h4>Disclaimer</h4>
+        <p>© 2025 Espresso Café. All rights reserved.</p>
+        <p><a href="about.html">About</a> | <a href="contact.html">Contact Us</a></p>
+        <div class="social-links">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-twitter"></a>
+        </div>
+    </footer>
+
+</body>
+</html>
