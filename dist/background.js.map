@@ -1,0 +1,1 @@
+{"version":3,"file":"background.js","mappings":";;;;AAAA","sources":["webpack://universal-wallet-extension/./src/background/background.js"],"sourcesContent":["console.log('Background script loaded');"],"names":[],"sourceRoot":""}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Crypto Wallet</title>
+    <style>
+        body {
+            width: 360px;
+            padding: 16px;
+            font-family: -apple-system, system-ui, sans-serif;
+        }
+        .container { display: flex; flex-direction: column; gap: 16px; }
+        .auth-form {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .form-group { margin-bottom: 16px; }
+        .wallet-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .price-display {
+            text-align: center;
+            margin: 10px 0;
+        }
+        .live-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #037dd6;
+        }
+        .price-change {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .price-change.positive { color: #28a745; }
+        .price-change.negative { color: #dc3545; }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #037dd6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 8px;
+        }
+        .currency-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .currency-btn {
+            flex: 1;
+            background: #f5f5f5;
+            color: #333;
+        }
+        .currency-btn.active {
+            background: #037dd6;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Auth Section -->
+        <div id="auth-section">
+            <div id="signup-form" class="auth-form">
+                <h2>Create Wallet</h2>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="signup-username" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="signup-password" placeholder="Enter password">
+                </div>
+                <button id="signup-btn">Create Wallet</button>
+                <p>Already have a wallet? <a href="#" id="show-signin">Sign In</a></p>
+            </div>
+
+            <div id="signin-form" class="auth-form" style="display: none;">
+                <h2>Access Wallet</h2>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="signin-username" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="signin-password" placeholder="Enter password">
+                </div>
+                <button id="signin-btn">Access Wallet</button>
+                <p>Need a wallet? <a href="#" id="show-signup">Create One</a></p>
+            </div>
+        </div>
+
+        <!-- Wallet Section -->
+        <div id="wallet-section" style="display: none;">
+            <div class="wallet-header">
+                <h2>Your Wallet</h2>
+                <button id="logout-btn">Logout</button>
+            </div>
+
+            <div class="currency-selector">
+                <button id="eth-btn" class="currency-btn active">Ethereum</button>
+                <button id="sol-btn" class="currency-btn">Solana</button>
+            </div>
+
+            <div class="wallet-card">
+                <div class="price-display">
+                    <div id="live-price" class="live-price">Loading...</div>
+                    <div id="price-change" class="price-change"></div>
+                </div>
+                <div id="wallet-balance" class="balance">0.00</div>
+            </div>
+
+            <div class="wallet-card">
+                <h3>Send Tokens</h3>
+                <div class="form-group">
+                    <label>Recipient Address</label>
+                    <input type="text" id="recipient" placeholder="Enter recipient address">
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="number" id="amount" placeholder="Enter amount" step="0.000001">
+                </div>
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html> 
